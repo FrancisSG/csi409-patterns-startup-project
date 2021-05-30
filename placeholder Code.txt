@@ -1,0 +1,83 @@
+//Update reservation
+if ("update".equals(type)) {
+
+    reservationId = request.getParameter("reservationId");
+
+
+		try
+		{  
+			 sql = "update tbl_daniel set last_name = ?,email = ?,bed_type = ?, smoking_preference = ? where id = ?";
+			
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, lastName);
+			ps.setString(2, email);
+            ps.setString(3, bedType);
+            ps.setString(4, smokingPreference);
+			ps.setInt(5, Integer.parseInt(reservationId));
+		
+			ps.execute();
+			
+		}catch(Exception e)
+		{
+			System.out.println(""+e);
+		}
+
+// Close Cnx
+    if(con != null)
+		{
+			try 
+			{
+				con.close();
+			} catch (Exception e) 
+			{
+				System.out.println(""+e);
+			}
+		}
+}
+
+//delete reservation
+if ("delete".equals(type)) {
+
+    
+    if(deleteCount < 2) {
+
+        reservationId = request.getParameter("reservationId");
+
+            try
+            {
+                sql = "delete from tbl_daniel where id = ?";
+                
+                ps = con.prepareStatement(sql);
+                ps.setInt(1, Integer.parseInt(reservationId));
+                ps.execute();
+                
+            }catch(Exception e)
+            {
+                System.out.println(""+e);
+            }
+
+    //Close Cnx
+        if(con != null)
+            {
+                try 
+                {
+                    con.close();
+                } catch (Exception e) 
+                {
+                    System.out.println(""+e);
+                }
+            }
+        } else 
+        {
+            System.out.println("Only two records are allowed");
+        }
+
+        deleteCount++;
+}
+
+
+url = "/ReservationDaniel.jsp";
+response.sendRedirect(url);
+
+%>
