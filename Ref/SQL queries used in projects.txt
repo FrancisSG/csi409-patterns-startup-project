@@ -1,0 +1,24 @@
+CREATE TABLE tbl_user (tbl_useruserID
+	userID int PRIMARY KEY,
+    FirstName varchar(255),
+    LastName varchar(255),
+	CreditCardNumber int,
+    SecurityCode int,
+    experationDate date
+);
+
+// For images 
+create table (
+imageId int PRIMARY KEY,
+imageName varchar(255)
+);
+
+//Images that are on sale
+insert into tbl_images VALUES (1, "Floral Delight");
+insert into tbl_images VALUES (2, "Kal");
+insert into tbl_images VALUES (3, "Abbrasive");
+insert into tbl_images VALUES (4, "Chloroplast");
+insert into tbl_images VALUES (5, "Sparkle");
+insert into tbl_images VALUES (6, "Exo-Skeleton");
+select * from tbl_images;
+
