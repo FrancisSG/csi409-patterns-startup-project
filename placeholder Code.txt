@@ -1,3 +1,16 @@
+String fname = (String) request.getSession().getAttribute("fName");
+String lName = (String) request.getSession().getAttribute("lName");
+String email = (String) request.getSession().getAttribute("email");
+String pass = (String) request.getSession().getAttribute("password");
+
+String creditCardNumber = (String) request.getSession().getAttribute("creditCardNumber");
+String securityCode = (String) request.getSession().getAttribute("securityCode");
+Date expirationDate = (Date) request.getSession().getAttribute("expirationDate");
+
+String type = (String) request.getSession().getAttribute("type");
+
+
+
 //Update reservation
 if ("update".equals(type)) {
 

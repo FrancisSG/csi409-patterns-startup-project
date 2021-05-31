@@ -18,28 +18,28 @@
                         <h1 class="text-center mb-3">Create an account</h1>
                         <div class="row justify-content-center align-items-center">
                             <div class="col-5 col-xs-4 align-items-center">
-                                <form  id="registerForm" action="backEnd.jsp" method="POST" class="justify-content-center align-items-center" >
+                                <form  id="registerForm" action="backEnd.jsp?type=insert" method="POST" class="justify-content-center align-items-center" >
 
                                     <div class="row justify-content-center align-items-center">
                                         <div class="mb-2 col-6 col-xs-4 align-items-center">
                                             <label for="fName" class="form-label">First Name</label>
-                                            <input type="text" name="fName" class="form-control" id="text" aria-describedby="text" required>
+                                            <input type="text" name="fName" class="form-control" id="fName" aria-describedby="text" required>
                                           </div>
     
                                           <div class="mb-2 col-6 col-xs-4 align-items-center">
                                             <label for="lName" class="form-label">Last Name</label>
-                                            <input type="text" name="lName" class="form-control" id="text" aria-describedby="text" required>
+                                            <input type="text" name="lName" class="form-control" id="lName" aria-describedby="text" required>
                                           </div>
                                     </div>
                                    
 
                                       <div class="mb-2">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <label for="email" class="form-label">Email address</label>
                                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                                       </div>
 
                                     <div class="mb-4">
-                                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                                      <label for="password" class="form-label">Password</label>
                                       <input type="password" name="password" class="form-control" id="password" required>
                                     </div>
                                     

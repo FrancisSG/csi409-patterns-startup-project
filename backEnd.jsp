@@ -2,55 +2,60 @@
 
 <%
 
-int reservationNum = 0;
+int userId = 0;
 String sql = "";
 PreparedStatement ps;
 
 int deleteCount = 0;
 String reservationId = "";
 
-String lastName = (String) request.getSession().getAttribute("lName");
-String email = (String) request.getSession().getAttribute("emailAddress");
-String type = (String) request.getSession().getAttribute("type");
-String bedType = (String) request.getSession().getAttribute("bedTypeId");
-String smokingReference = (String) request.getSession().getAttribute("smokingReference");
+String fname =  request.getParameter("fName");
+String lName = request.getParameter("lName");
+String email =  request.getParameter("email");
+String pass =  request.getParameter("password");
 
+String creditCardNumber =  request.getParameter("creditCardNumber");
+String securityCode = request.getParameter("securityCode");
+String expirationDate =  request.getParameter("expirationDate");
 
-String url = "jdbc:mysql://10.1.10.245:3307/hotel-db";
- String username = "admin";
- String password = "admin";
+String type =  request.getParameter("type");
 
+String url = "jdbc:mysql://localhost:3306/tbl_user";
+String username = "root";
+String password = "root";
 Connection con;
+
 Class.forName("com.mysql.cj.jdbc.Driver");
 con=DriverManager.getConnection(url,username,password);	
 
-//Connect to db
+// Connect to database
 try
 	{
-		
+		// do nothing
+      
 	}   catch(Exception e)
 		{
 			System.out.println(""+e);
 		}
 
-//Create reservation
-if ("insert".equals(type) && reservationNum <= 5) {
-        reservationNum++;
-
-				System.out.println("test");
-        
-
+//Create account
+if ("insert".equals(type)) {
+       
 		try
 		{  
-			 sql = "insert into tbl_daniel (id,last_name,email,bed_type,smoking_preference)" +
-					" values(?,?,?,?,?)";
+			 sql = "insert into tbl_user (userID,FirstName,LastName,CreditCardNumber,SecurityCode, expirationDate, email, pass)" +
+					" values(?,?,?,?,?,?,?)";
 			
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, reservationNum);
-			ps.setString(2, lastName);
-			ps.setString(3, email);
-            ps.setString(4, bedType);
-            ps.setString(5, smokingPreference);
+			ps.setInt(1, userId);
+			ps.setString(2, fName);
+			ps.setString(3, lName);
+            ps.setString(4, creditCardNumber);
+            ps.setString(5, securityCode);
+            ps.setString(6, expirationDate);
+            ps.setString(7, email);
+            ps.setString(8, pass);
+
 		
 			ps.execute();
 			
@@ -70,9 +75,7 @@ if ("insert".equals(type) && reservationNum <= 5) {
 				System.out.println(""+e);
 			}
 		}
-} else {
-   			System.out.println("Only five reservations are allowed!");
 }
 
 
-
+%>
